@@ -1,0 +1,354 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Women's Day </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--pink:#FADADD;
+--rose:#E75480;
+--maroon:#722F37;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#fff0f5,#ffc0cb);
+overflow:hidden;
+}
+
+/* floral background */
+
+body::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background-image:url("https://www.transparenttextures.com/patterns/flowers.png");
+opacity:.25;
+}
+
+/* butterflies */
+
+.butterfly{
+position:absolute;
+font-size:28px;
+animation:fly 12s linear infinite;
+opacity:.7;
+}
+
+@keyframes fly{
+0%{transform:translateY(110vh) translateX(0)}
+100%{transform:translateY(-10vh) translateX(200px)}
+}
+
+/* corner flowers */
+
+.corner{
+position:absolute;
+font-size:90px;
+opacity:.2;
+animation:float 6s ease-in-out infinite;
+}
+
+.tl{top:-20px;left:-20px}
+.tr{top:-20px;right:-20px}
+.bl{bottom:-20px;left:-20px}
+.br{bottom:-20px;right:-20px}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+/* card */
+
+.card{
+background:rgba(255,255,255,.9);
+padding:45px;
+border-radius:25px;
+max-width:560px;
+width:90%;
+text-align:center;
+box-shadow:
+0 15px 40px rgba(0,0,0,.15),
+inset 0 0 0 10px rgba(255,182,193,.25);
+
+position:absolute;
+transition:.8s;
+}
+
+/* floral border */
+
+.card::before{
+content:"🌸 🌷 🌸 🌷 🌸";
+position:absolute;
+top:-25px;
+left:50%;
+transform:translateX(-50%);
+font-size:26px;
+}
+
+/* MESSAGE CARD WITH BACKGROUND IMAGE */
+
+#message-card{
+background:
+linear-gradient(rgba(255,255,255,0.2),rgba(255,240,245,0.5)),
+url("mom.jpeg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+padding-top:90px;
+}
+
+/* hidden state */
+
+.hidden{
+opacity:0;
+transform:scale(.8) rotate(-3deg);
+pointer-events:none;
+}
+
+.visible{
+opacity:1;
+transform:scale(1);
+}
+
+/* heading */
+
+h1{
+font-family:Cinzel;
+color:var(--maroon);
+font-size:2.3rem;
+margin-bottom:10px;
+}
+
+.maa{
+font-family:Great Vibes;
+font-size:3.6rem;
+color:var(--rose);
+margin-bottom:20px;
+
+text-shadow:
+0 0 10px pink,
+0 0 20px #ff69b4;
+}
+
+p{
+font-size:1.15rem;
+line-height:1.7;
+color:#666;
+margin-bottom:20px;
+text-shadow:1px 1px 4px rgba(255,255,255,0.6);
+}
+
+.highlight{
+font-weight:700;
+color:var(--maroon);
+}
+
+/* button */
+
+button{
+background:linear-gradient(45deg,#E75480,#722F37);
+border:none;
+padding:15px 40px;
+border-radius:30px;
+font-size:1.1rem;
+color:white;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+/* petals */
+
+.petal{
+position:absolute;
+width:12px;
+height:12px;
+background:pink;
+border-radius:50% 0 50% 0;
+opacity:.7;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh) rotate(0deg);opacity:0}
+10%{opacity:1}
+100%{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+
+.sparkle{
+position:absolute;
+width:5px;
+height:5px;
+background:white;
+border-radius:50%;
+animation:twinkle linear forwards;
+}
+
+@keyframes twinkle{
+0%{opacity:0}
+50%{opacity:1;box-shadow:0 0 10px white}
+100%{opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="butterfly" style="left:10%">🦋</div>
+<div class="butterfly" style="left:40%;animation-delay:4s">🦋</div>
+<div class="butterfly" style="left:70%;animation-delay:2s">🦋</div>
+
+<div class="corner tl">🌸</div>
+<div class="corner tr">🌸</div>
+<div class="corner bl">🌷</div>
+<div class="corner br">🌷</div>
+
+<!-- intro card -->
+
+<div id="intro-card" class="card visible">
+
+<h1>To the HOME MINISTER of the house</h1>
+
+<div class="maa">Happy Women's Day</div>
+
+<p>We have a small surprise for you ❤️</p>
+
+<button onclick="reveal()">Tap to Open</button>
+
+</div>
+
+<!-- message card -->
+
+<div id="message-card" class="card hidden">
+
+<h1>To Our Superwoman</h1>
+
+
+<p>
+
+From the magical taste of your food that fixes every bad mood,
+to the silent sacrifices you made to see us smile —
+you are the heartbeat of our family.
+</p>
+
+<p>
+Today isn't just to celebrate you as a mother,
+but to celebrate the
+<span class="highlight">incredible, strong and beautiful woman</span>
+you are.
+</p>
+
+<div class="maa" style="font-size:2.2rem">
+(Hope students will be less scared of you 😉)
+</div>
+
+</div>
+
+<script>
+
+setInterval(createBackground,800);
+
+function reveal(){
+
+document.getElementById("intro-card").classList.replace("visible","hidden");
+
+setTimeout(()=>{
+
+document.getElementById("message-card").classList.replace("hidden","visible");
+
+burst();
+
+},500)
+
+}
+
+function createBackground(){
+
+let petal=Math.random()>.5;
+
+create(petal,10+Math.random()*5);
+
+}
+
+function burst(){
+
+for(let i=0;i<60;i++){
+
+setTimeout(()=>{
+
+create(true,4+Math.random()*3)
+
+},i*80)
+
+}
+
+}
+
+function create(isPetal,duration){
+
+let el=document.createElement("div");
+
+if(isPetal){
+
+el.classList.add("petal");
+
+let colors=[
+"#FFB6C1",
+"#FFC0CB",
+"#FF69B4",
+"#FADADD",
+"#E75480"
+];
+
+el.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+}else{
+
+el.classList.add("sparkle");
+
+}
+
+el.style.left=Math.random()*100+"vw";
+
+el.style.animationDuration=duration+"s";
+
+document.body.appendChild(el);
+
+setTimeout(()=>{
+
+el.remove();
+
+},duration*1000)
+
+}
+
+</script>
+
+</body>
+</html>
+```
